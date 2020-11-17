@@ -7,16 +7,12 @@ const app = express();
 
 app.use(cors());
 
-
 // parse requests of content-type: application/json
 app.use(bodyParser.json());
 
 // parse requests of content-type: application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
-// simple route
 app.get("/", (req, res) => {
   res.json("Welcome by the API build by NANDHOMAN.NL");
 });
@@ -40,15 +36,6 @@ app.get('/recipes', (request, response) => {
       });
   }
 });
-
-// app.get('/recipes/:CommunityID', (req, response) => {
-//   var CommunityID = req.params.CommunityID;
-//   pool.query('SELECT * FROM recipes WHERE CommunityID =' + CommunityID, (error, result) => {
-//       if (error) throw error;
-
-//       response.send(result);
-//   });
-// });
 
 app.get('/keywordsintotal/:KeywordID', (req, response) => {
   var KeywordID = req.params.KeywordID;
@@ -101,7 +88,6 @@ app.post('/setKeyword', function (req, res) {
   pool.query("INSERT INTO keywordsintotal VALUES" + String(Values),  (error, result) => {
     if (error) throw error;
     else;
-    // response.send(result);
 });
   res.send('POST request to the homepage')
 })
