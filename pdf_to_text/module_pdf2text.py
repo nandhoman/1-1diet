@@ -1,4 +1,7 @@
 import pdftotext
+import requests
+
+url = "localhost:3000/setReciepe"
 
 
 def main():
@@ -24,6 +27,25 @@ def main():
         "Step": int(stap),
         "Persons": int(aantal_personen),
     }
+    payload  = {}
+    headers = {
+    'PDFPath': 'C:/asdfjkasldfjkl;',
+    'CommunityID': 'CID123456789994',
+    'Populairity': '000000000000000000000000000000',
+    'Preparation': bereiding,
+    'BannerImageID': 'BID123456789011',
+    'Text': bevat,
+    'ReadTime': '00:05:00',
+    'AverageRanking': '000000000000000000000000000000',
+    'Likes': '000000000000000000000000000000',
+    'Title': 'Lekker Bloemkool soep met weinig calorieen',
+    'Step': int(stap),
+    'Persons': int(aantal_personen),
+    'Ingredients': ingredienten
+    }
+    response = requests.request("POST", url, headers=headers, data = payload)
+
+    print(response.text.encode('utf8'))
     for x in output.items():
         print(x)
 
@@ -34,3 +56,5 @@ def prettify(text):
 
 if __name__ == "__main__":
     main()
+
+
