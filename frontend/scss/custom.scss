@@ -1,0 +1,337 @@
+body {
+    font-size: 15px;
+    line-height: 1.3334;
+    color: #000;
+    font-family: 'Londrina Solid', cursive;
+  }
+  
+  section {
+    padding: 0;
+  }
+  
+  h1 {
+    font-size: 42px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: 900;
+  }
+  
+  h3 {
+    font-size: 20px;
+  }
+  
+  p {
+    margin: 0 0 10px;
+    line-height: 1.3;
+  }
+  
+  ul {
+    padding: 0 15px;
+  }
+  
+  a { 
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  
+  
+  .bg-pink {
+    background: #EDAACD;
+  }
+  
+  .bg-grey {
+    background: #E1E6E7;
+  }
+
+  .phone-res {
+    // background: #CEE5EA;
+    max-width: 375px;
+    margin: 0 auto;
+  }
+
+  #community-slide {
+    margin-bottom: 52px;
+    header {
+      margin-bottom: 30px;
+      .logo {
+        img {
+          max-width: 220px;
+        }
+      }
+    }
+  
+    .section-header {
+      width: 100%;
+      margin-bottom: 20px;
+      h2 {
+        color: #fff;
+        display: inline-block;
+        margin: 0;
+      }
+      h2.lead {
+        font-size: 32px;
+      }
+      i.fa-list {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 900;
+        display: inline-block;
+        float: right;
+      }
+    }
+  
+    .card {
+      border-radius: 15px;
+      height: 185px;
+      width: 280px;
+      margin-bottom: 40px;
+      border: none;
+      -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
+      -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
+      box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
+     
+      .card-content {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 10px 15px 15px 15px;
+        background: rgba(42, 45, 106, 0.9);
+        border-radius: 0 0 15px 15px;
+        h3 {
+          font-weight: 900;
+          font-size: 20px;
+          color: #fff;
+        }
+        p {
+          font-weight: 300;
+          font-size: 14px;
+          color: #fff;
+        }
+        // CARD LINKS
+        .card-links {
+          position: absolute;
+          right: 15px;;
+          .card-link {
+            display: inline-block;
+            background: #E84792;
+            margin-right: 0px;
+            margin-left: 10px;
+            border-radius: 50px;
+            padding: 5px 10px;
+            width: 56px;
+            height: 28px;
+            -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
+            -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
+            box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
+            transition: all .3s ease-in-out;
+            &:hover {
+              background: darken(#E84792, 8%);
+            }
+            i {
+              display: inline-block;
+              margin-right: 3px;
+              font-size: 17px;
+              color: #fff;
+            }
+            p {
+              display: inline-block;
+              font-weight: 300;
+              font-size: 14px;
+              color: #fff;
+              margin: 0;
+              float: right;
+            }
+          }
+        }
+      }
+    }
+
+
+    //IMG Community slide
+    .recipes {
+       //IMG BG
+       background-image: url(../img/recipes.jpg);
+       background-size: cover;
+       background-position: center center;
+       background-repeat: no-repeat;
+    }
+    .experience {
+      //IMG BG
+      background-image: url(../img/experience.jpg);
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    .update {
+      //IMG BG
+      background-image: url(../img/update.jpg);
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  #recipe-slide {
+    margin-bottom: 52px;
+    .section-head {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      .recipe-head {
+        height: 280px;
+        margin-bottom: 10px;
+        position: relative;
+        .recipe-img {
+          img {
+            padding: 39px 9px 0px 9px;
+          }
+        }
+        img {
+          width: 100%;
+          position: absolute;
+        }
+      }
+
+      .fase-icon {
+        position: absolute;
+        bottom: -50px;
+        right: 10px;
+        background-color: #ACDDE0;
+        border-radius: 50px;
+        width: 104px;
+        height: 104px;
+        z-index: 99;
+        p {
+          display: inline-block;
+          color: #fff;
+          margin: 0;
+        }
+        p.fase-text {
+          font-size: 24px;
+          font-weight: 900;
+          transform: rotate(-8deg);
+          margin-right: 5px;
+        }
+        p.fase-nr {
+          font-size: 56px;
+          font-weight: 900;
+          transform: rotate(3deg);
+        }
+      }
+      
+      h2 {
+        font-size: 32px;
+        color: #2B2E6B;
+      }
+    }
+    .section-content {
+      h4 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #EF6DA9;
+        margin-bottom: 5px;
+      }
+      p {
+        font-size: 16px;
+        color: #2B2E6B;
+        border-bottom: 2px dotted #2B2E6B;
+        padding-bottom: 10px;
+      }
+    }
+    .section-footer {
+      display: inline-block;
+      .link {
+        background: #E84792;
+        border-radius: 50px;
+        height: 100%;
+        width: 100%;
+        color: #fff;
+        i {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  nav {
+    // background: #5C99D0;
+    background: #4c92d2;
+    height: 52px;
+    padding: 13px 15px;
+    border: none;
+    position: fixed;
+    bottom: 0;
+    max-width: 375px;
+    width: 100%;
+    ul#mobile-nav {
+      margin: 0;
+      li {
+        list-style: none;
+        display:inline-block;
+        a {
+          color: #9ccaf5;
+          i {
+            font-size: 28px;
+            font-weight: 900;
+          }
+        }
+        a.active { 
+          color: #fff;
+        }
+      }
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .p-rev {
+    position: relative;
+  }
+  
+  .p-abs {
+    position: absolute;
+  }
+  
+  // Edits & presets
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .sectie {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+  
+  .d-block {
+    display: block; 
+  }
+  .fl-l {
+    float: left !important;
+  }
+  .fl-r {
+    float: right !important;
+  }
+  
+  
