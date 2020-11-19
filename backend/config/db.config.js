@@ -1,3 +1,4 @@
+
 const mysql = require('mysql');
 
 // Set database connection credentials

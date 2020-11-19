@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const pool = require("./backend/config/db.config.js");
+const pool = require("./config/db.config.js");
 const { response } = require("express");
 const cors = require('cors');
 const app = express();
