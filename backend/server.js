@@ -1,3 +1,4 @@
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const pool = require("./config/db.config.js");
@@ -14,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.json("Welcome by the API build by NANDHOMAN.NL");
+  res.json("Welcome by the API build by NANDHOMAN.nl");
 });
 
 app.get('/recipes', (request, response) => {
@@ -28,12 +29,12 @@ app.get('/recipes', (request, response) => {
     });
   }
   else{
-  pool.query('SELECT * FROM recipes WHERE CommunityID =' + CommunityID, (error, result) => {
-    console.log(2)
-          if (error) throw error;
-    
-          response.send(result);
-      });
+    pool.query('SELECT * FROM recipes WHERE CommunityID =' + CommunityID, (error, result) => {
+      console.log(2)
+            if (error) throw error;
+      
+            response.send(result);
+        });
   }
 });
 
@@ -91,6 +92,10 @@ app.post('/setKeyword', function (req, res) {
 });
   res.send('POST request to the homepage')
 })
+
+app.get('/newCID', (req, response) => {
+  response.send();
+});
 
 // set port, listen for requests
 app.listen(3000, () => {

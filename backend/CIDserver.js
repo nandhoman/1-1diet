@@ -1,7 +1,7 @@
 const pool = require("./config/db.config.js");
 
 var allCIDS = [];
-var CIDStoday = [];
+
 
 function pad(num, size) {
     var s = num+"";
@@ -34,9 +34,12 @@ function addZero(number) {
     }
 }
 
+ 
+
 function SearchLatestCommunityID() {
     var DayAndSort = "CID" + addZero(new Date().getFullYear()) + addZero((new Date().getMonth() + 1)) + addZero(new Date().getDate());
     var nakedCIDS = [];
+    var CIDStoday = [];
     for (ThisCommunityID = 0; ThisCommunityID < allCIDS.length; ThisCommunityID++) {        
         if (allCIDS[ThisCommunityID].includes(DayAndSort) === true) {
             CIDStoday.push(allCIDS[ThisCommunityID]);
@@ -47,11 +50,20 @@ function SearchLatestCommunityID() {
         var NakedCID = TempStoreNakedCIDS.replace(DayAndSort, "");
         nakedCIDS.push(NakedCID);
     }
-    var highestValue = Math.max(nakedCIDS);
+    console.log(nakedCIDS);
+    nakedCIDS = nakedCIDS.map(n => parseInt(n.toString(8), 10));
+    console.log(nakedCIDS);
+    
+    // highestValue = getArrayMax(nakedCIDS);
+    highestValue = Math.max.apply(null,nakedCIDS)
+
+    console.log("hv" + highestValue);
     
     var newValue = highestValue + 1;
-    
+    console.log(newValue);
+
     var generateNewID = DayAndSort + pad(newValue, 4);
+    console.log(generateNewID);
     
     ReservateNewID(generateNewID);
 }
@@ -66,7 +78,6 @@ function ReservateNewID(generatedCommunityid) {
 
 findNextCID();
 setTimeout(() => SearchLatestCommunityID(), 900);
-
 
 
 
