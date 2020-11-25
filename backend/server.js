@@ -4,7 +4,11 @@ const bodyParser = require("body-parser");
 const pool = require("./config/db.config.js");
 const { response } = require("express");
 const cors = require('cors');
+// import * as CIDserver from './backend/CIDserver.js';
+// const CIDserver = require("./CIDserver.js")
 const app = express();
+
+// console.log(CIDserver.CIDserver);
 
 app.use(cors());
 

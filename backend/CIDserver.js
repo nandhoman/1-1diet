@@ -1,29 +1,53 @@
 const pool = require("./config/db.config.js");
 
-var allCIDS = [];
-
-
 function pad(num, size) {
     var s = num+"";
     while (s.length < size) s = "0" + s;
     return s;
 }
 
+function ReservateNewID(generatedCommunityid) {
+    var databaseValue = " (\"" + generatedCommunityid + "\", " + 0 + ", " + 1 + ")"; 
+    pool.query('INSERT INTO communityid VALUES' + databaseValue, (error, result) => {
+              if (error) throw error;
+          });
+}
+
+function SearchLatestCommunityID(RecievedAllCIDS) {
+    var DayAndSort = "CID" + addZero(new Date().getFullYear()) + addZero((new Date().getMonth() + 1)) + addZero(new Date().getDate());
+    var nakedCIDS = [];
+    var CIDStoday = [];
+    for (ThisCommunityID = 0; ThisCommunityID < RecievedAllCIDS.length; ThisCommunityID++) {        
+        if (RecievedAllCIDS[ThisCommunityID].includes(DayAndSort) === true) {
+            CIDStoday.push(RecievedAllCIDS[ThisCommunityID]);
+        }
+    }
+    for (ThisCommunityID = 0; ThisCommunityID < CIDStoday.length; ThisCommunityID++) {
+        var TempStoreNakedCIDS = CIDStoday[ThisCommunityID];
+        var NakedCID = TempStoreNakedCIDS.replace(DayAndSort, "");
+        nakedCIDS.push(NakedCID);
+    }
+    nakedCIDS = nakedCIDS.map(n => parseInt(n.toString(8), 10));
+    highestValue = Math.max.apply(null,nakedCIDS)
+    var newValue = highestValue + 1;
+    var generateNewID = DayAndSort + pad(newValue, 4);
+    return generateNewID;
+}
+
 function findNextCID() {
+    var allCIDS = [];
     pool.query('SELECT * FROM communityid', (error, result) => {
         if (error) throw error;
-        console.log(result);
         var ThisCommunityID = 0;
 
         for (ThisCommunityID = 0; ThisCommunityID < result.length; ThisCommunityID++) {
             allCIDS.push(result[ThisCommunityID].CommunityID);
         }
-        console.log(allCIDS);
+        var newID = SearchLatestCommunityID(allCIDS);
+        ReservateNewID(newID);
+        return newID;
     });
-    // return allCIDS
-    
 }
-
 
 function addZero(number) {
     if (number < 10) {
@@ -34,50 +58,14 @@ function addZero(number) {
     }
 }
 
- 
-
-function SearchLatestCommunityID() {
-    var DayAndSort = "CID" + addZero(new Date().getFullYear()) + addZero((new Date().getMonth() + 1)) + addZero(new Date().getDate());
-    var nakedCIDS = [];
-    var CIDStoday = [];
-    for (ThisCommunityID = 0; ThisCommunityID < allCIDS.length; ThisCommunityID++) {        
-        if (allCIDS[ThisCommunityID].includes(DayAndSort) === true) {
-            CIDStoday.push(allCIDS[ThisCommunityID]);
-        }
-    }
-    for (ThisCommunityID = 0; ThisCommunityID < CIDStoday.length; ThisCommunityID++) {
-        var TempStoreNakedCIDS = CIDStoday[ThisCommunityID];
-        var NakedCID = TempStoreNakedCIDS.replace(DayAndSort, "");
-        nakedCIDS.push(NakedCID);
-    }
-    console.log(nakedCIDS);
-    nakedCIDS = nakedCIDS.map(n => parseInt(n.toString(8), 10));
-    console.log(nakedCIDS);
-    
-    // highestValue = getArrayMax(nakedCIDS);
-    highestValue = Math.max.apply(null,nakedCIDS)
-
-    console.log("hv" + highestValue);
-    
-    var newValue = highestValue + 1;
-    console.log(newValue);
-
-    var generateNewID = DayAndSort + pad(newValue, 4);
-    console.log(generateNewID);
-    
-    ReservateNewID(generateNewID);
+function main() {
+   return findNextCID();
 }
 
-function ReservateNewID(generatedCommunityid) {
-    var databaseValue = " (\"" + generatedCommunityid + "\", " + 0 + ", " + 1 + ")"; 
-    pool.query('INSERT INTO communityid VALUES' + databaseValue, (error, result) => {
-              if (error) throw error;
-          });
-}
+main();
 
+// exports.CIDserver = main();
 
-findNextCID();
-setTimeout(() => SearchLatestCommunityID(), 900);
 
 
 
