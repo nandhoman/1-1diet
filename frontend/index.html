@@ -24,6 +24,30 @@
 
    <!-- jQuery -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+
+   <script type="text/javascript">
+
+    function getRecipes(){
+        fetch('https://pokeapi.co/api/v2/pokemon')
+            .then(response => response.json())
+            .then(data => renderRecipes(data));
+    }
+    function renderRecipes(data){
+        console.log(data.results.length)
+        let content  = document.querySelector('#recipes .carousel-inner');
+        for (var i = 0; i < data.results.length; i++){
+          // console.log(data.results[i].name)
+          if (i == 1){
+            content.innerHTML += '<div class="carousel-item active"> <a href="recipes.html" class="card recipes"> <div class="card-content"> <h3 id="title">' + data.results[i].name + '</h3> <p id="description">' + data.results[i].url + '</p> </div> </a> </div>';
+          }
+          content.innerHTML += '<div class="carousel-item"> <a href="recipes.html" class="card recipes"> <div class="card-content"> <h3 id="title">' + data.results[i].name + '</h3> <p id="description">' + data.results[i].url + '</p> </div> </a> </div>';
+        }
+    }
+    getRecipes()
+  </script>
+
+
 </head>
 
 <body>
@@ -33,7 +57,7 @@
         <img src="img/logo.png">
       </div>
     </header>
-
+    <div class="content"></div>
     <section>
       <div id="featured" class="container-fluid cardSlider">
         <div class="row">
@@ -129,10 +153,11 @@
           <div class="col-12 no-p-h">
             <div class="sliderContent carousel slide" data-ride="carousel" data-interval="false">
               <div class="carousel-inner">
-                <div class="carousel-item active">
+
+                <!-- <div class="carousel-item">
                   <a href="recipes.html" class="card recipes">
                     <div class="card-content">
-                      <h3 id="title">Lorem ipsum 1</h3>
+                      <h3 id="title"></h3>
                       <p id="description">Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen.</p>
                       <div class="card-links">
                         <div class="card-link">
@@ -150,8 +175,9 @@
                       </div>
                     </div>
                   </a>
-                </div>
-                <div class="carousel-item">
+                </div> -->
+
+                <!-- <div class="carousel-item">
                   <a href="recipes.html" class="card recipes">
                     <div class="card-content">
                       <h3 id="title">Lorem ipsum 2</h3>
@@ -173,6 +199,7 @@
                     </div>
                   </a>
                 </div>
+
                 <div class="carousel-item">
                   <a href="recipes.html" class="card recipes">
                     <div class="card-content">
@@ -194,7 +221,8 @@
                       </div>
                     </div>
                   </a>
-                </div>
+                </div> -->
+
               </div>
             </div>
           </div>
@@ -284,7 +312,7 @@
         </div>
       </div>
 
-      <div id="experiences" class="container-fluid cardSlider">
+      <div id="updates" class="container-fluid cardSlider">
         <div class="row">
           <div class="col-12">
             <div class="sliderTitle">
