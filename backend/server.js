@@ -4,11 +4,9 @@ const bodyParser = require("body-parser");
 const pool = require("./config/db.config.js");
 const { response } = require("express");
 const cors = require('cors');
-// import * as CIDserver from './backend/CIDserver.js';
-// const CIDserver = require("./CIDserver.js")
+const CIDserver = require("./CIDserver.js");
 const app = express();
 
-// console.log(CIDserver.CIDserver);
 
 app.use(cors());
 
@@ -98,7 +96,9 @@ app.post('/setKeyword', function (req, res) {
 })
 
 app.get('/newCID', (req, response) => {
-  response.send();
+  const CIDserver = require("./CIDserver.js");
+  var newCID = CIDserver.main();
+  response.send(newCID);
 });
 
 // set port, listen for requests
