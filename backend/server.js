@@ -1,9 +1,12 @@
+
 const express = require("express");
 const bodyParser = require("body-parser");
-const pool = require("./backend/config/db.config.js");
+const pool = require("./config/db.config.js");
 const { response } = require("express");
 const cors = require('cors');
+const CIDserver = require("./CIDserver.js");
 const app = express();
+
 
 app.use(cors());
 
@@ -14,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.json("Welcome by the API build by NANDHOMAN.NL");
+  res.json("Welcome by the API build by NANDHOMAN.nl");
 });
 
 app.get('/recipes', (request, response) => {
@@ -28,12 +31,12 @@ app.get('/recipes', (request, response) => {
     });
   }
   else{
-  pool.query('SELECT * FROM recipes WHERE CommunityID =' + CommunityID, (error, result) => {
-    console.log(2)
-          if (error) throw error;
-    
-          response.send(result);
-      });
+    pool.query('SELECT * FROM recipes WHERE CommunityID =' + CommunityID, (error, result) => {
+      console.log(2)
+            if (error) throw error;
+      
+            response.send(result);
+        });
   }
 });
 
@@ -69,7 +72,8 @@ app.post('/setRecipe', function (req, res) {
   var Step = req.header('Step')
   var Persons = req.header('Persons')
   var Ingredients = req.header('Ingredients')
-  var Values = "('" + CommunityID + "', '" + PDFPath + "', '" + Populairity + "', '" + Preparation + "', '" + BannerImageID + "', '" + Text + "', '" + ReadTime + "', '" + AverageRanking + "', '" + Likes + "', '" + Title + "', '" + Step + "', '" + Persons + "', '" + Ingredients + "')"
+  var description = req.header('description')
+  var Values = "('" + CommunityID + "', '" + PDFPath + "', '" + Populairity + "', '" + Preparation + "', '" + BannerImageID + "', '" + Text + "', '" + ReadTime + "', '" + AverageRanking + "', '" + Likes + "', '" + Title + "', '" + Step + "', '" + Persons + "', '" + Ingredients + "', '" + description + "')"
   console.log(Values)
   pool.query("INSERT INTO recipes VALUES" + String(Values),  (error, result) => {
     if (error) throw error;
@@ -91,6 +95,12 @@ app.post('/setKeyword', function (req, res) {
 });
   res.send('POST request to the homepage')
 })
+
+app.get('/newCID', (req, response) => {
+  const CIDserver = require("./CIDserver.js");
+  var newCID = CIDserver.main();
+  response.send(newCID);
+});
 
 // set port, listen for requests
 app.listen(3000, () => {
