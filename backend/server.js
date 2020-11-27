@@ -72,7 +72,8 @@ app.post('/setRecipe', function (req, res) {
   var Step = req.header('Step')
   var Persons = req.header('Persons')
   var Ingredients = req.header('Ingredients')
-  var Values = "('" + CommunityID + "', '" + PDFPath + "', '" + Populairity + "', '" + Preparation + "', '" + BannerImageID + "', '" + Text + "', '" + ReadTime + "', '" + AverageRanking + "', '" + Likes + "', '" + Title + "', '" + Step + "', '" + Persons + "', '" + Ingredients + "')"
+  var description = req.header('description')
+  var Values = "('" + CommunityID + "', '" + PDFPath + "', '" + Populairity + "', '" + Preparation + "', '" + BannerImageID + "', '" + Text + "', '" + ReadTime + "', '" + AverageRanking + "', '" + Likes + "', '" + Title + "', '" + Step + "', '" + Persons + "', '" + Ingredients + "', '" + description + "')"
   console.log(Values)
   pool.query("INSERT INTO recipes VALUES" + String(Values),  (error, result) => {
     if (error) throw error;
