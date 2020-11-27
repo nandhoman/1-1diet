@@ -105,8 +105,9 @@ app.post('/setKeyword', function (req, res) {
 })
 
 app.get('/newCID', (req, response) => {
-  const CIDserver = require("./CIDserver.js");
-  var newCID = CIDserver.main();
+  var CIDserver = require("./CIDserver.js");
+  var newCID = CIDserver.main;
+  console.log(newCID);
   response.send(newCID);
 });
 

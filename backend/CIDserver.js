@@ -27,37 +27,40 @@ function SearchLatestCommunityID(RecievedAllCIDS) {
         var NakedCID = TempStoreNakedCIDS.replace(DayAndSort, "");
         nakedCIDS.push(NakedCID);
     }
-    console.log(nakedCIDS);
+    
     nakedCIDS = nakedCIDS.map(n => parseInt(n.toString(8), 10));
     highestValue = Math.max.apply(null,nakedCIDS)
-    console.log(nakedCIDS.length);
-    console.log("before");
-    if (nakedCIDS.length = 0) {
+    
+    
+    if (nakedCIDS.length === 0) {
        var newValue = 1;
     }
     else {
         var newValue = highestValue + 1;
     }
-    console.log("after", newValue)
+    
     var generateNewID = DayAndSort + pad(newValue, 4);
-    console.log(generateNewID);
+    
     return generateNewID;
 }
 
 function findNextCID() {
     var allCIDS = [];
+    var newID;
+    // console.log(newID);
     pool.query('SELECT * FROM communityid', (error, result) => {
-        if (error) throw error;
+        if (error)
+            throw error;
         var ThisCommunityID = 0;
 
         for (ThisCommunityID = 0; ThisCommunityID < result.length; ThisCommunityID++) {
             allCIDS.push(result[ThisCommunityID].CommunityID);
         }
-        var newID = SearchLatestCommunityID(allCIDS);
-        console.log(newID);
+        newID = SearchLatestCommunityID(allCIDS);
+
         ReservateNewID(newID);
-        return newID;
-    });
+    })
+    return newID;
 }
 
 function addZero(number) {
@@ -69,11 +72,9 @@ function addZero(number) {
     }
 }
 
-function main() {
-   return findNextCID();
-}
+// console.log(findNextCID());
 
-module.exports = main();
+module.exports = findNextCID();
   
 
 
