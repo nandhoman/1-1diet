@@ -1,10 +1,18 @@
+// This API is created by Nandhom.nl. There're used a couple of package, those are listed below.
+// Please read the docs to learn more about this API.
+
+// To run this server please make your own node environment.
+// run npm init
+// run npm ci
+// take a coffee
+// run the code
 
 const express = require("express");
 const bodyParser = require("body-parser");
 const pool = require("./config/db.config.js");
 const { response } = require("express");
 const cors = require('cors');
-const CIDserver = require("./CIDserver.js");
+// const CIDserver = require("./CIDserver.js");
 const app = express();
 
 
