@@ -44,26 +44,25 @@ function SearchLatestCommunityID(RecievedAllCIDS) {
     return generateNewID;
 }
 
-function findNextCID() {
-    var allCIDS = [];
-    var newID;
-    // console.log(newID);
-    pool.query('SELECT * FROM communityid', (error, result) => {
-        if (error)
-            throw error;
-        var ThisCommunityID = 0;
+// function findNextCID() {
+//     var allCIDS = [];
+//     var newID;
+//     // console.log(newID);
+//     pool.query('SELECT * FROM communityid', (error, result) => {
+//         if (error)
+//             throw error;
+//         var ThisCommunityID = 0;
 
-        for (ThisCommunityID = 0; ThisCommunityID < result.length; ThisCommunityID++) {
-            allCIDS.push(result[ThisCommunityID].CommunityID);
-        }
-        newID = SearchLatestCommunityID(allCIDS);
+//         for (ThisCommunityID = 0; ThisCommunityID < result.length; ThisCommunityID++) {
+//             allCIDS.push(result[ThisCommunityID].CommunityID);
+//         }
+//         newID = SearchLatestCommunityID(allCIDS);
 
-        ReservateNewID(newID);
-        // console.log(newID)
-        
-    })
-    return newID;
-}
+//         ReservateNewID(newID);
+//         // console.log(newID)
+//         return newID;
+//     })
+// }
 
 function addZero(number) {
     if (number < 10) {
@@ -82,7 +81,36 @@ function addZero(number) {
 //     return findNextCID();
 // }
  
-module.exports = {findNextCID};
-  
+// module.exports = {findNextCID};
 
+let newID;
+  
+let CIDgenerator = new Promise((resolve, reject) => {
+    var allCIDS = [];
+    
+    // console.log(newID);
+    pool.query('SELECT * FROM communityid', (error, result) => {
+        if (error)
+            throw error;
+        var ThisCommunityID = 0;
+
+        for (ThisCommunityID = 0; ThisCommunityID < result.length; ThisCommunityID++) {
+            allCIDS.push(result[ThisCommunityID].CommunityID);
+        }
+        newID = SearchLatestCommunityID(allCIDS);
+
+        ReservateNewID(newID);
+        resolve(newID);
+        reject("Oeps")
+        // console.log(newID)
+        // return newID;
+    })
+}).then((message) => {
+    console.log(newID)
+    return newID
+}).catch((message) => {
+    console.log("Making CID failed +" + message)
+})
+
+module.exports = {CIDgenerator};
 
