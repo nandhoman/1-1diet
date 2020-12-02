@@ -101,7 +101,7 @@ let CIDgenerator = new Promise((resolve, reject) => {
 
         ReservateNewID(newID);
         resolve(newID);
-        reject("Oeps")
+        // reject("Oeps")
         // console.log(newID)
         // return newID;
     })

@@ -1,3 +1,4 @@
+const { response } = require("express");
 const pool = require("./config/db.config.js");
 console.log("CIDserver is listening")
 function pad(num, size) {
@@ -44,25 +45,20 @@ function SearchLatestCommunityID(RecievedAllCIDS) {
     return generateNewID;
 }
 
-function findNextCID() {
+function findNextCID(callback) {
     var allCIDS = [];
-    var newID;
-    // console.log(newID);
     pool.query('SELECT * FROM communityid', (error, result) => {
-        if (error)
-            throw error;
+        if (error) throw error;
         var ThisCommunityID = 0;
 
         for (ThisCommunityID = 0; ThisCommunityID < result.length; ThisCommunityID++) {
             allCIDS.push(result[ThisCommunityID].CommunityID);
         }
-        newID = SearchLatestCommunityID(allCIDS);
-
+        var newID = SearchLatestCommunityID(allCIDS);
+        console.log(newID);
         ReservateNewID(newID);
-        // console.log(newID)
-        
-    })
-    return newID;
+        callback(newID);
+    });
 }
 
 function addZero(number) {
@@ -73,14 +69,6 @@ function addZero(number) {
         return number
     }
 }
-
-// console.log(findNextCID());
-
-// module.exports = findNextCID();
-
-// function main() {
-//     return findNextCID();
-// }
  
 module.exports = {findNextCID};
   
