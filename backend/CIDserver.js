@@ -1,3 +1,4 @@
+const { response } = require("express");
 const pool = require("./config/db.config.js");
 console.log("CIDserver is listening")
 function pad(num, size) {
@@ -27,24 +28,24 @@ function SearchLatestCommunityID(RecievedAllCIDS) {
         var NakedCID = TempStoreNakedCIDS.replace(DayAndSort, "");
         nakedCIDS.push(NakedCID);
     }
-    console.log(nakedCIDS);
+    
     nakedCIDS = nakedCIDS.map(n => parseInt(n.toString(8), 10));
     highestValue = Math.max.apply(null,nakedCIDS)
-    console.log(nakedCIDS.length);
-    console.log("before");
-    if (nakedCIDS.length = 0) {
+    
+    
+    if (nakedCIDS.length === 0) {
        var newValue = 1;
     }
     else {
         var newValue = highestValue + 1;
     }
-    console.log("after", newValue)
+    
     var generateNewID = DayAndSort + pad(newValue, 4);
-    console.log(generateNewID);
+    
     return generateNewID;
 }
 
-function findNextCID() {
+function findNextCID(callback) {
     var allCIDS = [];
     pool.query('SELECT * FROM communityid', (error, result) => {
         if (error) throw error;
@@ -56,7 +57,7 @@ function findNextCID() {
         var newID = SearchLatestCommunityID(allCIDS);
         console.log(newID);
         ReservateNewID(newID);
-        return newID;
+        callback(newID);
     });
 }
 
@@ -68,12 +69,8 @@ function addZero(number) {
         return number
     }
 }
-
-function main() {
-   return findNextCID();
-}
-
-module.exports = main();
+ 
+module.exports = {findNextCID};
   
 
 
