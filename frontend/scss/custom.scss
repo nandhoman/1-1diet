@@ -146,6 +146,10 @@ body {
                 font-weight: 300;
                 font-size: 14px;
                 color: #fff;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;  /* Number of lines displayed before it truncate */
+                 overflow: hidden;
               }
               // Card links
               .card-links {
@@ -330,20 +334,35 @@ body {
     }
   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  .dropdownMenu {
+    display: inline-block;
+    float: right;
+    color: white;
+    .dropdown-toggle::after {
+      display: none;
+    }
+    button {
+      border-radius: 50px;
+      background: #b5e7ea;
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    ul.dropdown-menu {
+      border-radius: 10px;
+      background: #9edce0;
+      border: none;
+      margin-right: 10px;
+      li {
+        padding: 5px 15px;
+        a {
+          color: #fff;
+          font-size: 18px;
+        }
+      }
+    }
+  }
   
   
   
@@ -379,4 +398,4 @@ body {
     float: right !important;
   }
   
-  
+   
