@@ -27,7 +27,7 @@ def main():
         "Step": int(stap),
         "Persons": int(aantal_personen),
     }
-    payload = {
+    json = {
         'PDFPath': 'C:/asdfjkasldfjkl;',
         'CommunityID': 'CID123456789994',
         'Populairity': '000000000000000000000000000000',
@@ -44,7 +44,7 @@ def main():
     }
     headers = {}
 
-response = requests.request("POST", url, headers=headers, data = payload)
+response = requests.request("POST", url, headers=headers, data = json)
 
     print(response.text.encode('utf8'))
     for x in output.items():
