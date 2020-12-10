@@ -4,7 +4,9 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, 
+     user-scalable=0' >
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -27,21 +29,20 @@
 
 
    <script type="text/javascript">
-
     function getRecipes(){
-        fetch('https://pokeapi.co/api/v2/pokemon')
+        fetch('http://phisapi.nhhost.online:4001/recipes')
             .then(response => response.json())
             .then(data => renderRecipes(data));
     }
     function renderRecipes(data){
-        console.log(data.results.length)
+        console.log(data)
         let content  = document.querySelector('#recipes .carousel-inner');
-        for (var i = 0; i < data.results.length; i++){
+        for (var i = 0; i < data.length; i++){
           // console.log(data.results[i].name)
           if (i == 1){
-            content.innerHTML += '<div class="carousel-item active"> <a href="recipes.html" class="card recipes"> <div class="card-content"> <h3 id="title">' + data.results[i].name + '</h3> <p id="description">' + data.results[i].url + '</p> </div> </a> </div>';
+            content.innerHTML += '<div class="carousel-item active"> <a href="recipes.html" class="card recipes"> <div class="card-content"> <h3 id="title">' + data[i].Title + '</h3> <p id="description">' + data[i].Preparation + '</p><div class="card-links"><div class="card-link"><i class="far fa-heart"></i><p id="likes">12</p></div><div class="card-link"><i class="far fa-comment"></i><p id="comments">12</p></div><div class="card-link"><i class="far fa-star"></i><p id="populairity">12</p></div></div></div></a></div>';
           }
-          content.innerHTML += '<div class="carousel-item"> <a href="recipes.html" class="card recipes"> <div class="card-content"> <h3 id="title">' + data.results[i].name + '</h3> <p id="description">' + data.results[i].url + '</p> </div> </a> </div>';
+          content.innerHTML += '<div class="carousel-item"> <a href="recipes.html" class="card recipes"> <div class="card-content"> <h3 id="title">' + data[i].Title + '</h3> <p id="description">' + data[i].Preparation + '</p><div class="card-links"><div class="card-link"><i class="far fa-heart"></i><p id="likes">12</p></div><div class="card-link"><i class="far fa-comment"></i><p id="comments">12</p></div><div class="card-link"><i class="far fa-star"></i><p id="populairity">12</p></div></div></div></a></div>';
         }
     }
     getRecipes()
@@ -57,7 +58,6 @@
         <img src="img/logo.png">
       </div>
     </header>
-    <div class="content"></div>
     <section>
       <div id="featured" class="container-fluid cardSlider">
         <div class="row">
@@ -147,14 +147,22 @@
           <div class="col-12">
             <div class="sliderTitle">
               <h2>Recepten</h2>
-              <a href="#"><i class="fas fa-list"></i></a>
+              <div class="dropdownMenu">
+                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-list"></i></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Categories</a></li>
+                  <li><a href="#">Hashtags</a></li>
+                  <li><a href="#">Ingredienten</a></li>
+                  <li><a href="#">Allergenen</a></li>
+                </ul>
+              </div>
             </div>
           </div>
           <div class="col-12 no-p-h">
             <div class="sliderContent carousel slide" data-ride="carousel" data-interval="false">
               <div class="carousel-inner">
 
-                <!-- <div class="carousel-item">
+                <div class="carousel-item">
                   <a href="recipes.html" class="card recipes">
                     <div class="card-content">
                       <h3 id="title"></h3>
@@ -175,9 +183,9 @@
                       </div>
                     </div>
                   </a>
-                </div> -->
+                </div>
 
-                <!-- <div class="carousel-item">
+                <div class="carousel-item">
                   <a href="recipes.html" class="card recipes">
                     <div class="card-content">
                       <h3 id="title">Lorem ipsum 2</h3>
@@ -221,7 +229,7 @@
                       </div>
                     </div>
                   </a>
-                </div> -->
+                </div>
 
               </div>
             </div>
