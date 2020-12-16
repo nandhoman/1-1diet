@@ -13,4 +13,4 @@ const pool = mysql.createPool(config);
 
 // Export the pool
 module.exports = pool;
-console.log("Succesfully loged in to database")
+console.log("Succesfully logged in to database")
