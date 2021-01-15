@@ -26,6 +26,19 @@ app.get("/", (req, res) => {
   res.json("Welcome by the API build by NANDHOMAN.nl");
 });
 
+function addQuotationMarks(string, count){
+  if (count == 1){
+    return "\'" + string + "\'";
+  }
+  if (count == 2){
+    return "\"" + string + "\"";
+  }
+  else{
+    return string;
+  }
+};
+
+
 app.get("/recipes", (request, response) => {
   var CommunityID = request.query.CommunityID;
   if (CommunityID === undefined) {
@@ -59,6 +72,19 @@ app.get("/keywordsintotal/:KeywordID", (req, response) => {
     }
   );
 });
+
+app.get("/views/:CommunityID", (req, response) => {
+  var CommunityID = req.params.CommunityID;
+  console.log(CommunityID);
+  pool.query("SELECT * FROM views WHERE CommunityID = " + addQuotationMarks(CommunityID, 1),
+    (error, result) => {
+      console.log(CommunityID);
+      if (error) throw error;
+      response.send(400, result[0].Count);
+    }
+  );
+});
+
 
 app.get("/keywords", (request, response) => {
   pool.query("SELECT * FROM keywordsintotal", (error, result) => {
