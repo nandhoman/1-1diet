@@ -144,6 +144,11 @@ app.post("/setRecipe", function (req, res) {
     else;
     // response.send(result);
   });
+  pool.query("INSERT INTO views VALUES (0, " + addQuotationMarks(CommunityID, 1) + ")", (error, result) => {
+    if (error) throw error;
+    else;
+    // response.send(result);
+  });
   res.send("POST request to the homepage");
 });
 
