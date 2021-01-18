@@ -65,16 +65,94 @@
           <div class="col-12">
             <div class="sliderTitle">
               <h2>Uitgelicht</h2>
-              <div class="dropdownMenu">
-                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-list"></i></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Stap</a></li>
-                  <li><a href="#">Categories</a></li>
-                  <li><a href="#">Hashtags</a></li>
-                  <li><a href="#">Ingredienten</a></li>
-                  <li><a href="#">Allergenen</a></li>
-                </ul>
+              
+              <a class="filter-button panel-title accordion-toggle" role="button" data-toggle="collapse" href="#collapseFeatured" aria-expanded="false" aria-controls="collapseFeatured">
+                <i class="fas fa-list"></i>
+              </a>
+
+              <div class="filter-menu mobile">
+                <form>
+                  <div class="panel panel-mobile">
+                    
+                    <div class="panel-heading" role="tab" id="headingFiltersMobile"></div>
+
+                    <div id="collapseFeatured" class="panel-filter panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFiltersMobile">
+                      <div class="panel-body">
+                        <div class="panel-group" id="filter-menu-mobile" role="tablist" aria-multiselectable="true">
+
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingOneMobile">
+                              <a class="panel-title accordion-toggle" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseOneMobile" aria-expanded="true" aria-controls="collapseOneMobile">
+                                Stap
+                              </a>
+                            </div>
+                            <div id="collapseOneMobile" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneMobile">
+                              <div class="panel-body">
+                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="1">1</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="2">2</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="3">3</label></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingTwoMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseTwoMobile" aria-expanded="false" aria-controls="collapseTwoMobile">
+                                Categorieën
+                              </a>
+                            </div>
+                            <div id="collapseTwoMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwoMobile">
+                              <div class="panel-body">
+                                <div class="checkbox"><label><input type="checkbox" name="categorie[]" value="politics">Politics</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="categorie[]" value="religion">Religion</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="categorie[]" value="music">Music</label></div>
+                              </div>
+                            </div>
+                          </div>
+      
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingThreeMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseThreeMobile" aria-expanded="false" aria-controls="collapseThreeMobile">
+                                Hashtags
+                              </a>
+                            </div>
+                            <div id="collapseThreeMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeMobile">
+                              <input type="text" placeholder="Zoeken..">
+                            </div>
+                          </div>
+      
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingFourMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseFourMobile" aria-expanded="false" aria-controls="collapseFourMobile">
+                                Ingrediënten
+                              </a>
+                            </div>
+                            <div id="collapseFourMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFourMobile">
+                              <input type="text" placeholder="Zoeken..">
+                            </div>
+                          </div>
+                          
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingFiveMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseFiveMobile" aria-expanded="false" aria-controls="collapseFiveMobile">
+                                Allergenen
+                              </a>
+                            </div>
+                            <div id="collapseFiveMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFourMobile">
+                              <input type="text" placeholder="Zoeken..">
+                            </div>
+                          </div>
+                          
+
+                          <div class="panel-footer">
+                            <button class="btn" type="submit">Filters toepassen</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
+
             </div>
           </div>
           <div class="col-12 no-p-h">
@@ -157,22 +235,165 @@
           <div class="col-12">
             <div class="sliderTitle">
               <h2>Recepten</h2>
-              <div class="dropdownMenu">
-                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-list"></i></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Stap</a></li>
-                  <li><a href="#">Categories</a></li>
-                  <li><a href="#">Hashtags</a></li>
-                  <li><a href="#">Ingredienten</a></li>
-                  <li><a href="#">Allergenen</a></li>
-                </ul>
+
+              <a class="filter-button panel-title accordion-toggle" role="button" data-toggle="collapse" href="#collapseRecipes" aria-expanded="false" aria-controls="collapseRecipes">
+                <i class="fas fa-list"></i>
+              </a>
+
+              <div class="filter-menu mobile">
+                <form>
+                  <div class="panel panel-mobile">
+                    
+                    <div class="panel-heading" role="tab" id="headingFiltersMobile"></div>
+
+                    <div id="collapseRecipes" class="panel-filter panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFiltersMobile">
+                      <div class="panel-body">
+                        <div class="panel-group" id="filter-menu-mobile" role="tablist" aria-multiselectable="true">
+
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingOneMobile">
+                              <a class="panel-title accordion-toggle" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseOneMobile" aria-expanded="true" aria-controls="collapseOneMobile">
+                                Stap
+                              </a>
+                            </div>
+                            <div id="collapseOneMobile" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneMobile">
+                              <div class="panel-body">
+                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="1">1</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="2">2</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="3">3</label></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingTwoMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseTwoMobile" aria-expanded="false" aria-controls="collapseTwoMobile">
+                                Categorieën
+                              </a>
+                            </div>
+                            <div id="collapseTwoMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwoMobile">
+                              <div class="panel-body">
+                                <div class="checkbox"><label><input type="checkbox" name="categorie[]" value="politics">Politics</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="categorie[]" value="religion">Religion</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="categorie[]" value="music">Music</label></div>
+                              </div>
+                            </div>
+                          </div>
+      
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingThreeMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseThreeMobile" aria-expanded="false" aria-controls="collapseThreeMobile">
+                                Hashtags
+                              </a>
+                            </div>
+                            <div id="collapseThreeMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeMobile">
+                              <input type="text" placeholder="Zoeken..">
+                            </div>
+                          </div>
+      
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingFourMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseFourMobile" aria-expanded="false" aria-controls="collapseFourMobile">
+                                Ingrediënten
+                              </a>
+                            </div>
+                            <div id="collapseFourMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFourMobile">
+                              <input type="text" placeholder="Zoeken..">
+                            </div>
+                          </div>
+                          
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingFiveMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseFiveMobile" aria-expanded="false" aria-controls="collapseFiveMobile">
+                                Allergenen
+                              </a>
+                            </div>
+                            <div id="collapseFiveMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFourMobile">
+                              <input type="text" placeholder="Zoeken..">
+                            </div>
+                          </div>
+                          
+
+                          <div class="panel-footer">
+                            <button class="btn" type="submit">Filters toepassen</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
+              
             </div>
           </div>
           <div class="col-12 no-p-h">
             <div class="sliderContent carousel slide" data-ride="carousel" data-interval="false">
               <div class="carousel-inner">
-
+                <div class="carousel-item active">
+                  <a href="recipes.html" class="card recipes">
+                    <div class="card-content">
+                      <h3 id="title">Lorem ipsum 1</h3>
+                      <p id="description">Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen.</p>
+                      <div class="card-links">
+                        <div class="card-link">
+                          <i class="far fa-heart"></i>
+                          <p id="likes">12</p>
+                        </div>
+                        <div class="card-link">
+                          <i class="far fa-comment"></i>
+                          <p id="comments">12</p>
+                        </div>
+                        <div class="card-link">
+                          <i class="far fa-star"></i>
+                          <p id="populairity">12</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a href="recipes.html" class="card recipes">
+                    <div class="card-content">
+                      <h3 id="title">Lorem ipsum 2</h3>
+                      <p id="description">Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen.</p>
+                      <div class="card-links">
+                        <div class="card-link">
+                          <i class="far fa-heart"></i>
+                          <p id="likes">12</p>
+                        </div>
+                        <div class="card-link">
+                          <i class="far fa-comment"></i>
+                          <p id="comments">12</p>
+                        </div>
+                        <div class="card-link">
+                          <i class="far fa-star"></i>
+                          <p id="populairity">12</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a href="recipes.html" class="card recipes">
+                    <div class="card-content">
+                      <h3 id="title">Lorem ipsum 3</h3>
+                      <p id="description">Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen.</p>
+                      <div class="card-links">
+                        <div class="card-link">
+                          <i class="far fa-heart"></i>
+                          <p id="likes">12</p>
+                        </div>
+                        <div class="card-link">
+                          <i class="far fa-comment"></i>
+                          <p id="comments">12</p>
+                        </div>
+                        <div class="card-link">
+                          <i class="far fa-star"></i>
+                          <p id="populairity">12</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -184,16 +405,94 @@
           <div class="col-12">
             <div class="sliderTitle">
               <h2>Ervaringen</h2>
-              <div class="dropdownMenu">
-                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-list"></i></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Stap</a></li>
-                  <li><a href="#">Categories</a></li>
-                  <li><a href="#">Hashtags</a></li>
-                  <li><a href="#">Ingredienten</a></li>
-                  <li><a href="#">Allergenen</a></li>
-                </ul>
+              
+              <a class="filter-button panel-title accordion-toggle" role="button" data-toggle="collapse" href="#collapseExperiences" aria-expanded="false" aria-controls="collapseExperiences">
+                <i class="fas fa-list"></i>
+              </a>
+
+              <div class="filter-menu mobile">
+                <form>
+                  <div class="panel panel-mobile">
+                    
+                    <div class="panel-heading" role="tab" id="headingFiltersMobile"></div>
+
+                    <div id="collapseExperiences" class="panel-filter panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFiltersMobile">
+                      <div class="panel-body">
+                        <div class="panel-group" id="filter-menu-mobile" role="tablist" aria-multiselectable="true">
+
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingOneMobile">
+                              <a class="panel-title accordion-toggle" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseOneMobile" aria-expanded="true" aria-controls="collapseOneMobile">
+                                Stap
+                              </a>
+                            </div>
+                            <div id="collapseOneMobile" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneMobile">
+                              <div class="panel-body">
+                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="1">1</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="2">2</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="3">3</label></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingTwoMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseTwoMobile" aria-expanded="false" aria-controls="collapseTwoMobile">
+                                Categorieën
+                              </a>
+                            </div>
+                            <div id="collapseTwoMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwoMobile">
+                              <div class="panel-body">
+                                <div class="checkbox"><label><input type="checkbox" name="categorie[]" value="politics">Politics</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="categorie[]" value="religion">Religion</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="categorie[]" value="music">Music</label></div>
+                              </div>
+                            </div>
+                          </div>
+      
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingThreeMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseThreeMobile" aria-expanded="false" aria-controls="collapseThreeMobile">
+                                Hashtags
+                              </a>
+                            </div>
+                            <div id="collapseThreeMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeMobile">
+                              <input type="text" placeholder="Zoeken..">
+                            </div>
+                          </div>
+      
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingFourMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseFourMobile" aria-expanded="false" aria-controls="collapseFourMobile">
+                                Ingrediënten
+                              </a>
+                            </div>
+                            <div id="collapseFourMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFourMobile">
+                              <input type="text" placeholder="Zoeken..">
+                            </div>
+                          </div>
+                          
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingFiveMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseFiveMobile" aria-expanded="false" aria-controls="collapseFiveMobile">
+                                Allergenen
+                              </a>
+                            </div>
+                            <div id="collapseFiveMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFourMobile">
+                              <input type="text" placeholder="Zoeken..">
+                            </div>
+                          </div>
+                          
+
+                          <div class="panel-footer">
+                            <button class="btn" type="submit">Filters toepassen</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
+
             </div>
           </div>
           <div class="col-12 no-p-h">
@@ -276,16 +575,94 @@
           <div class="col-12">
             <div class="sliderTitle">
               <h2>Updates</h2>
-              <div class="dropdownMenu">
-                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-list"></i></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Stap</a></li>
-                  <li><a href="#">Categories</a></li>
-                  <li><a href="#">Hashtags</a></li>
-                  <li><a href="#">Ingredienten</a></li>
-                  <li><a href="#">Allergenen</a></li>
-                </ul>
+              
+              <a class="filter-button panel-title accordion-toggle" role="button" data-toggle="collapse" href="#collapseUpdates" aria-expanded="false" aria-controls="collapseUpdates">
+                <i class="fas fa-list"></i>
+              </a>
+
+              <div class="filter-menu mobile">
+                <form>
+                  <div class="panel panel-mobile">
+                    
+                    <div class="panel-heading" role="tab" id="headingFiltersMobile"></div>
+
+                    <div id="collapseUpdates" class="panel-filter panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFiltersMobile">
+                      <div class="panel-body">
+                        <div class="panel-group" id="filter-menu-mobile" role="tablist" aria-multiselectable="true">
+
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingOneMobile">
+                              <a class="panel-title accordion-toggle" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseOneMobile" aria-expanded="true" aria-controls="collapseOneMobile">
+                                Stap
+                              </a>
+                            </div>
+                            <div id="collapseOneMobile" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneMobile">
+                              <div class="panel-body">
+                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="1">1</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="2">2</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="3">3</label></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingTwoMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseTwoMobile" aria-expanded="false" aria-controls="collapseTwoMobile">
+                                Categorieën
+                              </a>
+                            </div>
+                            <div id="collapseTwoMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwoMobile">
+                              <div class="panel-body">
+                                <div class="checkbox"><label><input type="checkbox" name="categorie[]" value="politics">Politics</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="categorie[]" value="religion">Religion</label></div>
+                                <div class="checkbox"><label><input type="checkbox" name="categorie[]" value="music">Music</label></div>
+                              </div>
+                            </div>
+                          </div>
+      
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingThreeMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseThreeMobile" aria-expanded="false" aria-controls="collapseThreeMobile">
+                                Hashtags
+                              </a>
+                            </div>
+                            <div id="collapseThreeMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeMobile">
+                              <input type="text" placeholder="Zoeken..">
+                            </div>
+                          </div>
+      
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingFourMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseFourMobile" aria-expanded="false" aria-controls="collapseFourMobile">
+                                Ingrediënten
+                              </a>
+                            </div>
+                            <div id="collapseFourMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFourMobile">
+                              <input type="text" placeholder="Zoeken..">
+                            </div>
+                          </div>
+                          
+                          <div class="panel panel-mobile">
+                            <div class="panel-heading" role="tab" id="headingFiveMobile">
+                              <a class="panel-title accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#filter-menu-mobile" href="#collapseFiveMobile" aria-expanded="false" aria-controls="collapseFiveMobile">
+                                Allergenen
+                              </a>
+                            </div>
+                            <div id="collapseFiveMobile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFourMobile">
+                              <input type="text" placeholder="Zoeken..">
+                            </div>
+                          </div>
+                          
+
+                          <div class="panel-footer">
+                            <button class="btn" type="submit">Filters toepassen</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
+
             </div>
           </div>
           <div class="col-12 no-p-h">
