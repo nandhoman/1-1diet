@@ -1,7 +1,7 @@
 import pdftotext
 import requests
 
-url = "http://phisapi.nhhost.online:4001/setRecipes"
+url = "http://phisapi.nhhost.online:3000/setRecipes"
 
 
 def main():
@@ -27,7 +27,7 @@ def main():
         "Step": int(stap),
         "Persons": int(aantal_personen),
     }
-    payload = {
+    json = {
         'PDFPath': 'C:/asdfjkasldfjkl;',
         'CommunityID': 'CID123456789994',
         'Populairity': '000000000000000000000000000000',
@@ -42,9 +42,8 @@ def main():
         'Persons': int(aantal_personen),
         'Ingredients': ingredienten
     }
-    headers = {}
 
-response = requests.request("POST", url, headers=headers, data = payload)
+    response = requests.post(url, json=json)
 
     print(response.text.encode('utf8'))
     for x in output.items():
