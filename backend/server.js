@@ -26,6 +26,19 @@ app.get("/", (req, res) => {
   res.json("Welcome by the API build by NANDHOMAN.nl");
 });
 
+function addQuotationMarks(string, count){
+  if (count == 1){
+    return "\'" + string + "\'";
+  }
+  if (count == 2){
+    return "\"" + string + "\"";
+  }
+  else{
+    return string;
+  }
+};
+
+
 app.get("/recipes", (request, response) => {
   var CommunityID = request.query.CommunityID;
   if (CommunityID === undefined) {
@@ -56,6 +69,42 @@ app.get("/keywordsintotal/:KeywordID", (req, response) => {
       if (error) throw error;
 
       response.send(result);
+    }
+  );
+});
+
+app.get("/views/:CommunityID", (req, response) => {
+  var CommunityID = req.params.CommunityID;
+  console.log(CommunityID);
+  pool.query("SELECT * FROM views WHERE CommunityID = " + addQuotationMarks(CommunityID, 1),
+    (error, result) => {
+      console.log(CommunityID);
+      if (error) throw error;
+      response.send(400, result[0].Count);
+    }
+  );
+});
+
+function GetViewsCount(CommunityID){
+pool.query("SELECT * FROM views WHERE CommunityID = " + addQuotationMarks(CommunityID, 1),
+    (error, result) => {
+      console.log(CommunityID);
+      if (error) throw error;
+      console.log(result[0].Count)
+    }
+    .then(() => {return result[0].Count;})
+  )
+};
+var Test = "CID202101110003";
+console.log(GetViewsCount(Test));
+
+app.get("/viewsUpdate/:CommunityID", (req, response) => {
+  var CommunityID = req.params.CommunityID;
+  pool.query(`UPDATE views SET Count = ${(GetViewsCount(CommunityID) + 1)} WHERE CommunityID = ` + addQuotationMarks(CommunityID, 1), 
+    (error, result) => {
+      console.log(CommunityID);
+      if (error) throw error;
+      response.send(400, result[0].Count);
     }
   );
 });
