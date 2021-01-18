@@ -78,7 +78,6 @@ app.get("/views/:CommunityID", (req, response) => {
   console.log(CommunityID);
   pool.query("SELECT * FROM views WHERE CommunityID = " + addQuotationMarks(CommunityID, 1),
     (error, result) => {
-      console.log(CommunityID);
       if (error) throw error;
       response.send(400, result[0].Count);
     }
