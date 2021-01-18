@@ -85,30 +85,6 @@ app.get("/views/:CommunityID", (req, response) => {
   );
 });
 
-function GetViewsCount(CommunityID){
-pool.query("SELECT * FROM views WHERE CommunityID = " + addQuotationMarks(CommunityID, 1),
-    (error, result) => {
-      console.log(CommunityID);
-      if (error) throw error;
-      console.log(result[0].Count)
-    }
-    .then(() => {return result[0].Count;})
-  )
-};
-var Test = "CID202101110003";
-console.log(GetViewsCount(Test));
-
-app.get("/viewsUpdate/:CommunityID", (req, response) => {
-  var CommunityID = req.params.CommunityID;
-  pool.query(`UPDATE views SET Count = ${(GetViewsCount(CommunityID) + 1)} WHERE CommunityID = ` + addQuotationMarks(CommunityID, 1), 
-    (error, result) => {
-      console.log(CommunityID);
-      if (error) throw error;
-      response.send(400, result[0].Count);
-    }
-  );
-});
-
 app.get("/keywords", (request, response) => {
   pool.query("SELECT * FROM keywordsintotal", (error, result) => {
     if (error) throw error;
@@ -164,6 +140,11 @@ app.post("/setRecipe", function (req, res) {
     "')";
   console.log(Values);
   pool.query("INSERT INTO recipes VALUES" + String(Values), (error, result) => {
+    if (error) throw error;
+    else;
+    // response.send(result);
+  });
+  pool.query("INSERT INTO views VALUES (0, " + addQuotationMarks(CommunityID, 1) + ")" , (error, result) => {
     if (error) throw error;
     else;
     // response.send(result);
