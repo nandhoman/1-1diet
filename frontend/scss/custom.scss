@@ -315,8 +315,9 @@ body {
     bottom: 0;
     max-width: 375px;
     width: 100%;
+    z-index: 9999;
     ul#mobile-nav {
-      margin: 0;
+      margin: 0; 
       li {
         list-style: none;
         display:inline-block;
@@ -338,12 +339,17 @@ body {
     display: inline-block;
     float: right;
     color: white;
+    // padding-top: 3px;
     .dropdown-toggle::after {
       display: none;
     }
     button {
       border-radius: 50px;
       background: #b5e7ea;
+      -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
+      -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.1);
+      box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.1);
+      transition: all .3s ease-in;
       &:focus {
         outline: none;
         box-shadow: none;
@@ -354,8 +360,13 @@ body {
       background: #9edce0;
       border: none;
       margin-right: 10px;
+      
       li {
         padding: 5px 15px;
+        border-bottom: 2px solid #b5e7ea;
+        &:last-child {
+          border-bottom: none;
+        }
         a {
           color: #fff;
           font-size: 18px;
