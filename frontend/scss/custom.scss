@@ -226,6 +226,20 @@ body {
 
   #recipe {
     margin-bottom: 52px;
+    .views {
+      i, p {
+        color: #2B2E6B;
+        display: inline-block;
+      }
+      i {
+        font-size: 20px;
+        margin-right: 5px;
+      }
+      p {
+        font-size: 16px;
+        margin: 0;
+      }
+    }
     .recipeHead {
       margin-top: 15px;
       margin-bottom: 15px;
@@ -276,6 +290,7 @@ body {
       }
     }
     .recipeContent {
+      padding: 15px 0;
       h4 {
         font-size: 20px;
         font-weight: 700;
@@ -292,14 +307,21 @@ body {
     .recipeLink {
       display: inline-block;
       width: 100%;
+      padding-bottom: 15px;
       .link {
-        background: #E84792;
-        border-radius: 50px;
         height: 100%;
         width: 100%;
         color: #fff;
+        padding: 5px;
         i {
-          font-size: 30px;
+          font-size: 18px;
+          background: #E84792;
+          border-radius: 25px;
+          padding: 5px;
+          width: 40px;
+          -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
+          -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
+          box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
         }
       }
     }
@@ -337,11 +359,15 @@ body {
   
 
  a.filter-button {
-  border-radius: 50px;
-  background: #b5e7ea;
-  &:focus {
-    outline: none;
-    box-shadow: none;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    i {
+    border-radius: 50px;
+    background: #b5e7ea;
+    transition: all .3s ease-in;
+    padding: 8px;
   }
  } 
 
@@ -351,9 +377,6 @@ body {
   z-index: 999;
   right: 15px;
   min-width: 180px;
-  // -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
-  // -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.1);
-  // box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.1);
   .panel-filter {
     background: white;
     border-radius: 10px;
@@ -402,63 +425,7 @@ body {
   }
 }
 
-  // .dropdownMenu {
-  //   display: inline-block;
-  //   float: right;
-  //   color: white;
-  //   // padding-top: 3px;
-  //   .dropdown-toggle::after {
-  //     display: none;
-  //   }
-  //   button {
-  //     border-radius: 50px;
-  //     background: #b5e7ea;
-  //     -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
-  //     -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.1);
-  //     box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.1);
-  //     transition: all .3s ease-in;
-  //     &:focus {
-  //       outline: none;
-  //       box-shadow: none;
-  //     }
-  //   }
-  //   ul.dropdown-menu {
-  //     border-radius: 10px;
-  //     background: #9edce0;
-  //     border: none;
-  //     margin-right: 10px;
-  //     padding-bottom: 0;
-  //     li {
-  //       padding: 5px 15px;
-  //       border-bottom: 2px solid #b5e7ea;
-  //       &:last-child {
-  //         border-bottom: none;
-  //         text-align: center;
-  //         padding: 10px;
-  //         background: #69cdd4;
-  //         border-radius: 0 0 10px 10px;
-  //       }
-  //       a {
-  //         color: #fff;
-  //         font-size: 18px;
-  //       }
-  //     }
-  //     li.check-item {
-  //       color: #fff;
-  //       input {
-  //         float: right;
-  //         margin-top: 4px;
-  //       }
-        
-  //     }
-  //   }
-  // }
-  
-  
-  
-  
-  
-  
+
   .p-rev {
     position: relative;
   }
