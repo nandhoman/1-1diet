@@ -30,76 +30,74 @@
 
 
    <script type="text/javascript">
-    function getRecipes(){
-        fetch('http://172.16.1.40:3000/recipes')
-            .then(response => response.json())
-            .then(data => renderRecipes(data));
-    }
-    function renderRecipes(data){
-        console.log(data)
-        let content  = document.querySelector('#recipes .carousel-inner');
-        for (var i = 0; i < data.length; i++){
-          // console.log(data.results[i].name)
+//     function getRecipes(){
+//         fetch('http://172.16.1.40:3000/recipes')
+//             .then(response => response.json())
+//             .then(data => renderRecipes(data));
+//     }
+//     function renderRecipes(data){
+//         console.log(data)
+//         let content  = document.querySelector('#recipes .carousel-inner');
+//         for (var i = 0; i < data.length; i++){
+//           // console.log(data.results[i].name)
           
-          if (i == 0){
-            // console.log(data[i]);
-            content.innerHTML += '<div class="carousel-item active"> <a data-id="' + data[i].CommunityID + '" href="#" class="card recipes"> <div class="card-content"> <h3 id="title">' + data[i].Title + '</h3> <p id="description">' + data[i].Preparation + '</p><div class="card-links"><div class="card-link"><i class="far fa-heart"></i><p id="likes">12</p></div><div class="card-link"><i class="far fa-comment"></i><p id="comments">12</p></div><div class="card-link"><i class="far fa-star"></i><p id="populairity">12</p></div></div></div></a></div>';
-          }
-          else {
-            content.innerHTML += '<div class="carousel-item"> <a data-id="' + data[i].CommunityID + '"href="#" class="card recipes"> <div class="card-content"> <h3 id="title">' + data[i].Title + '</h3> <p id="description">' + data[i].Preparation + '</p><div class="card-links"><div class="card-link"><i class="far fa-heart"></i><p id="likes">12</p></div><div class="card-link"><i class="far fa-comment"></i><p id="comments">12</p></div><div class="card-link"><i class="far fa-star"></i><p id="populairity">12</p></div></div></div></a></div>';
-          }
-        }
+//           if (i == 0){
+//             // console.log(data[i]);
+//             content.innerHTML += '<div class="carousel-item active"> <a data-id="' + data[i].CommunityID + '" href="#" class="card recipes"> <div class="card-content"> <h3 id="title">' + data[i].Title + '</h3> <p id="description">' + data[i].Preparation + '</p><div class="card-links"><div class="card-link"><i class="far fa-heart"></i><p id="likes">12</p></div><div class="card-link"><i class="far fa-comment"></i><p id="comments">12</p></div><div class="card-link"><i class="far fa-star"></i><p id="populairity">12</p></div></div></div></a></div>';
+//           }
+//           else {
+//             content.innerHTML += '<div class="carousel-item"> <a data-id="' + data[i].CommunityID + '"href="#" class="card recipes"> <div class="card-content"> <h3 id="title">' + data[i].Title + '</h3> <p id="description">' + data[i].Preparation + '</p><div class="card-links"><div class="card-link"><i class="far fa-heart"></i><p id="likes">12</p></div><div class="card-link"><i class="far fa-comment"></i><p id="comments">12</p></div><div class="card-link"><i class="far fa-star"></i><p id="populairity">12</p></div></div></div></a></div>';
+//           }
+//         }
         
-        jQuery(document).ready(function(){
-          jQuery('a.recipes').on('click', function(){               
-            let recipeID = $(this).data("id");
-            getRecipe(recipeID);
-          });
-        });
+//         jQuery(document).ready(function(){
+//           jQuery('a.recipes').on('click', function(){               
+//             let recipeID = $(this).data("id");
+//             getRecipe(recipeID);
+//           });
+//         });
       
-        function getRecipe(id) {
-        fetch('http://172.16.1.40:3000/recipes')
-            .then(response => response.json())
-            .then(data => TESTrenderRecipe(data, id));
-        }
+//         function getRecipe(id) {
+//         fetch('http://172.16.1.40:3000/recipes')
+//             .then(response => response.json())
+//             .then(data => TESTrenderRecipe(data, id));
+//         }
 
-        function TESTrenderRecipe(data, id) {
+//         function TESTrenderRecipe(data, id) {
         
-        $.each(data, function (index, jsonObject) {
-          // let recipeContent = document.querySelector('#recipe');
-          let recipeContent = $('#recipe');
-          let communityContent = $('#community');
-            if (jsonObject.CommunityID == id) {
-                // console.log(jsonObject);
-                // console.log(jsonObject.CommunityID);
-                recipeContent.html('<section> <div class="container"> <div class="row"> <div class="col-12"> <div class="recipeHead"> <div class="recipeWrap"> <div class="recipeImg"> <img src="img/recipes.jpg"> </div><img src="img/frame.png"> <div class="faseIcon d-flex align-items-center justify-content-center"> <p class="faseText">Stap</p><p class="faseNr">' + jsonObject.Step + '</p></div></div><h2 id="title">' + jsonObject.Title + '</h2> <div class="views d-flex align-items-center"> <i class="fas fa-eye"></i> <p class="view-count">' + jsonObject.AverageRanking + '</p></div></div><div class="recipeContent"> <h4>Dit recept bevat</h4> <p>2/3 portie groente | 1 portie eiwit |1/5 portie zuivel</p><h4>Ingrediënten</h4> <p>' + jsonObject.Ingredients + '</p><h4>Bereiding</h4> <p id="preparation">' + jsonObject.Preparation + '</p></div><div class="recipeLink text-center"> <a href="#" class="link"> <i class="far fa-heart"></i> </a> <a href="#" class="link"> <i class="far fa-comment"></i> </a> <a href="#" class="link"> <i class="far fa-star"></i> </a> <i class="fas fa-times closeRecipe" style="display: block;padding: 15px;font-size: 30px;color: #dcdcdc;"></i> </div></div></div></div></section>');
+//         $.each(data, function (index, jsonObject) {
+//           // let recipeContent = document.querySelector('#recipe');
+//           let recipeContent = $('#recipe');
+//           let communityContent = $('#community');
+//             if (jsonObject.CommunityID == id) {
+//                 // console.log(jsonObject);
+//                 // console.log(jsonObject.CommunityID);
+//                 recipeContent.html('<section> <div class="container"> <div class="row"> <div class="col-12"> <div class="recipeHead"> <div class="recipeWrap"> <div class="recipeImg"> <img src="img/recipes.jpg"> </div><img src="img/frame.png"> <div class="faseIcon d-flex align-items-center justify-content-center"> <p class="faseText">Stap</p><p class="faseNr">' + jsonObject.Step + '</p></div></div><h2 id="title">' + jsonObject.Title + '</h2> <div class="views d-flex align-items-center"> <i class="fas fa-eye"></i> <p class="view-count">' + jsonObject.AverageRanking + '</p></div></div><div class="recipeContent"> <h4>Dit recept bevat</h4> <p>2/3 portie groente | 1 portie eiwit |1/5 portie zuivel</p><h4>Ingrediënten</h4> <p>' + jsonObject.Ingredients + '</p><h4>Bereiding</h4> <p id="preparation">' + jsonObject.Preparation + '</p></div><div class="recipeLink text-center"> <a href="#" class="link"> <i class="far fa-heart"></i> </a> <a href="#" class="link"> <i class="far fa-comment"></i> </a> <a href="#" class="link"> <i class="far fa-star"></i> </a> <i class="fas fa-times closeRecipe" style="display: block;padding: 15px;font-size: 30px;color: #dcdcdc;"></i> </div></div></div></div></section>');
                 
-                recipeContent.toggle();
-                communityContent.toggle();
-            }
-          });
+//                 recipeContent.toggle();
+//                 communityContent.toggle();
+//             }
+//           });
           
-          jQuery(document).ready(function(){
-            let communityContent = $('#community');
-            jQuery('.closeRecipe').on('click', function(){               
-              $('#recipe').hide();
-              communityContent.toggle();
-            });
-          });
+//           jQuery(document).ready(function(){
+//             let communityContent = $('#community');
+//             jQuery('.closeRecipe').on('click', function(){               
+//               $('#recipe').hide();
+//               communityContent.toggle();
+//             });
+//           });
 
-        }
-    }
+//         }
+//     }
 
-getRecipes()
+// getRecipes()
   </script>
 
 
 </head>
 
 <body>
-  <div id="recipe" style='display:none;'>
-    
-  </div>
+  <div id="recipe" style='display:none;'></div>
   <div id="community" class="phone-res bg-pink">
     <header>
       <div class="logo">
@@ -135,9 +133,18 @@ getRecipes()
                             </div>
                             <div id="collapseOneMobile" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneMobile">
                               <div class="panel-body">
-                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="1">1</label></div>
-                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="2">2</label></div>
-                                <div class="checkbox"><label><input type="checkbox" name="stap[]" value="3">3</label></div>
+                                <div class="row">
+                                  <div class="col-6">
+                                    <div class="checkbox"><label><input type="checkbox" name="stap[]" value="1">1</label></div>
+                                    <div class="checkbox"><label><input type="checkbox" name="stap[]" value="2">2</label></div>
+                                    <div class="checkbox"><label><input type="checkbox" name="stap[]" value="3">3</label></div>
+                                  </div>
+                                  <div class="col-6">
+                                    <div class="checkbox"><label><input type="checkbox" name="stap[]" value="1">4</label></div>
+                                    <div class="checkbox"><label><input type="checkbox" name="stap[]" value="2">5</label></div>
+                                    <div class="checkbox"><label><input type="checkbox" name="stap[]" value="3">6</label></div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
